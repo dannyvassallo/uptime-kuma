@@ -10,10 +10,10 @@ const nodeVersion = parseInt(process.versions.node.split(".")[0]);
 const requiredVersion = 14;
 console.log(`Your Node.js version: ${nodeVersion}`);
 
-if (nodeVersion < requiredVersion) {
-    console.error(`Error: Your Node.js version is not supported, please upgrade to Node.js >= ${requiredVersion}.`);
-    process.exit(-1);
-}
+// if (nodeVersion < requiredVersion) {
+//     console.error(`Error: Your Node.js version is not supported, please upgrade to Node.js >= ${requiredVersion}.`);
+//     process.exit(-1);
+// }
 
 const args = require("args-parser")(process.argv);
 const { sleep, log, getRandomInt, genSecret, debug, isDev } = require("../src/util");

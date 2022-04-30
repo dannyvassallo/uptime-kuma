@@ -17,7 +17,7 @@
         "dev": "concurrently -k -r \"wait-on tcp:3000 && yarn start-server-dev \" \"yarn start-frontend-dev\"",
         "start-frontend-dev": "cross-env NODE_ENV=development vite --host --config ./config/vite.config.js",
         "start": "yarn start-server",
-        "start-server": "node server/server.js",
+        "start-server": "./node_modules/.bin/babel-node --experimental-worker --presets @babel/preset-env -- server/server.js",
         "start-server-dev": "cross-env NODE_ENV=development node server/server.js",
         "build": "vite build --config ./config/vite.config.js",
         "test": "node test/prepare-test-server.js && node server/server.js --port=3002 --data-dir=./data/test/ --test",
@@ -121,8 +121,10 @@
     },
     "devDependencies": {
         "@actions/github": "~5.0.1",
+        "@babel/core": "^7.17.10",
         "@babel/eslint-parser": "~7.17.0",
-        "@babel/preset-env": "^7.15.8",
+        "@babel/node": "^7.17.10",
+        "@babel/preset-env": "^7.17.10",
         "@types/bootstrap": "~5.1.9",
         "@vitejs/plugin-legacy": "~1.6.4",
         "@vitejs/plugin-vue": "~1.9.4",
@@ -143,6 +145,7 @@
         "sass": "~1.42.1",
         "stylelint": "~14.7.1",
         "stylelint-config-standard": "~25.0.0",
+        "ts-node": "^10.7.0",
         "typescript": "~4.4.4",
         "vite": "~2.6.14",
         "wait-on": "^6.0.1"
